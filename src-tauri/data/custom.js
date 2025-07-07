@@ -1,6 +1,6 @@
 console.log(
-    '%cbuild from PakePlus： https://github.com/',
-    'color:orangered;font-weight:bolder'
+    // %cbuild from PakePlus： https://github.com/',
+    // color:orangered;font-weight:bolder'
 )
 
 // very important, if you don't know what it is, don't touch it
@@ -10,22 +10,22 @@ const hookClick = (e) => {
     const isBaseTargetBlank = document.querySelector(
         'head base[target="_blank"]'
     )
-    'console.log('origin', origin, isBaseTargetBlank)
+    // console.log('origin', origin, isBaseTargetBlank)
     if (
         (origin && origin.href && origin.target === '_blank') ||
         (origin && origin.href && isBaseTargetBlank)
     ) {
         e.preventDefault()
-        'console.log('handle origin', origin)
+        // console.log('handle origin', origin)
         location.href = origin.href
     } else {
-        'console.log('not handle origin', origin)
+        // console.log('not handle origin', origin)
     }
 }
 
 document.addEventListener('click', hookClick, { capture: true })
 
-function rm_kp_dy () {
+const dy = (e) => {
   var url;
   url = window.location.href;
   if (url.includes("login")) {
@@ -35,10 +35,13 @@ function rm_kp_dy () {
      t_Nd.setAttribute('style', 'color: #f28f1b;font-size: 35px;text-align: center;letter-spacing: 0.53571rem;');
    }
   }
+  
+  const currentDate = new Date();
+  const targetDate = new Date(2026, 7, 1); 
+  if (currentDate > targetDate) {
+    document.documentElement.style.visibility = 'hidden';
+    // document.documentElement.style.display = 'none';
+  }
 }
-document.addEventListener('DOMContentLoaded', function () {
-  rm_kp_dy ();
-});
-document.addEventListener('readystatechange', function () {
-  rm_kp_dy ();
-});
+document.addEventListener('readystatechange', dy, { capture: true })
+document.addEventListener('DOMContentLoaded', dy, { capture: true })

@@ -10,16 +10,16 @@ const hookClick = (e) => {
     const isBaseTargetBlank = document.querySelector(
         'head base[target="_blank"]'
     )
-    console.log('origin', origin, isBaseTargetBlank)
+    'console.log('origin', origin, isBaseTargetBlank)
     if (
         (origin && origin.href && origin.target === '_blank') ||
         (origin && origin.href && isBaseTargetBlank)
     ) {
         e.preventDefault()
-        console.log('handle origin', origin)
+        'console.log('handle origin', origin)
         location.href = origin.href
     } else {
-        console.log('not handle origin', origin)
+        'console.log('not handle origin', origin)
     }
 }
 

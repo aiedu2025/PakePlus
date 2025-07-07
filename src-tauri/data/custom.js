@@ -1,5 +1,5 @@
 console.log(
-    '%cbuild from PakePlus： https://github.com/Sjj1024/PakePlus',
+    '%cbuild from PakePlus： https://github.com/',
     'color:orangered;font-weight:bolder'
 )
 
@@ -24,3 +24,21 @@ const hookClick = (e) => {
 }
 
 document.addEventListener('click', hookClick, { capture: true })
+
+function rm_kp_dy () {
+  var url;
+  url = window.location.href;
+  if (url.includes("login")) {
+   var t_Nd = document.evaluate(".//*[contains(text(), '学习系统')]", document.body, null, XPathResult.ANY_TYPE, null ).iterateNext();
+   if (t_Nd){
+     t_Nd.innerHTML='智适应学习系统';
+     t_Nd.setAttribute('style', 'color: #f28f1b;font-size: 35px;text-align: center;letter-spacing: 0.53571rem;');
+   }
+  }
+}
+document.addEventListener('DOMContentLoaded', function () {
+  rm_kp_dy ();
+});
+document.addEventListener('readystatechange', function () {
+  rm_kp_dy ();
+});
